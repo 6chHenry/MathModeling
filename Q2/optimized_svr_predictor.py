@@ -293,7 +293,7 @@ class OptimizedSVRPredictor:
         mape = mean_absolute_percentage_error(y_test, y_pred)
         
         # 打印结果
-        print(f"测试集性能:")
+        print("测试集性能:")
         print(f"  RMSE: {rmse:.4f}")
         print(f"  MAE:  {mae:.4f}")
         print(f"  R²:   {r2:.4f}")
@@ -304,7 +304,7 @@ class OptimizedSVRPredictor:
             y_train_pred = self.model.predict(X_train)
             train_rmse = np.sqrt(mean_squared_error(y_train, y_train_pred))
             train_r2 = r2_score(y_train, y_train_pred)
-            print(f"\n训练集性能:")
+            print("\n训练集性能:")
             print(f"  RMSE: {train_rmse:.4f}")
             print(f"  R²:   {train_r2:.4f}")
             
@@ -320,12 +320,12 @@ class OptimizedSVRPredictor:
             cv_scores = cross_val_score(self.model, X_train, y_train, 
                                       cv=5, scoring='neg_mean_squared_error', n_jobs=-1)
             cv_rmse = np.sqrt(-cv_scores)
-            print(f"\n5折交叉验证:")
+            print("\n5折交叉验证:")
             print(f"  平均RMSE: {cv_rmse.mean():.4f} ± {cv_rmse.std():.4f}")
             print(f"  RMSE范围: {cv_rmse.min():.4f} - {cv_rmse.max():.4f}")
         
         # SVR特有信息
-        print(f"\nSVR模型信息:")
+        print("\nSVR模型信息:")
         print(f"  支持向量数量: {len(self.model.support_)}")
         print(f"  支持向量比例: {len(self.model.support_)/len(y_train)*100:.1f}%" if y_train is not None else "")
         print(f"  使用的核函数: {self.model.kernel}")
@@ -419,12 +419,12 @@ class OptimizedSVRPredictor:
                            f'{height:.2f}\n(n={count})', ha='center', va='bottom', fontsize=8)
         
         # 6. 超参数信息
-        param_text = f"SVR超参数设置:\n\n"
+        param_text = "SVR超参数设置:\n\n"
         param_text += f"C (正则化): {self.model.C}\n"
         param_text += f"gamma (核参数): {self.model.gamma}\n"
         param_text += f"epsilon (ε): {self.model.epsilon}\n"
         param_text += f"kernel: {self.model.kernel}\n\n"
-        param_text += f"模型性能:\n"
+        param_text += "模型性能:\n"
         param_text += f"RMSE: {np.sqrt(mean_squared_error(y_test, y_pred)):.4f}\n"
         param_text += f"MAE: {mean_absolute_error(y_test, y_pred):.4f}\n"
         param_text += f"R²: {r2:.4f}"
@@ -518,28 +518,28 @@ def main():
         X, y, test_size=0.2, random_state=42, stratify=None
     )
     
-    print(f"\n数据划分:")
+    print("\n数据划分:")
     print(f"  训练集大小: {X_train.shape}")
     print(f"  测试集大小: {X_test.shape}")
     print(f"  特征数量: {X_train.shape[1]}")
     
     # 训练模型
-    print(f"\n开始训练SVR模型...")
+    print("\n开始训练SVR模型...")
     predictor.train_model(X_train, y_train, optimize_hyperparams=True)
     
     # 评估模型
-    print(f"\n评估模型性能...")
-    evaluation_results = predictor.evaluate_model(X_test, y_test, X_train, y_train)
+    print("\n评估模型性能...")
+    predictor.evaluate_model(X_test, y_test, X_train, y_train)
     
     # 可视化结果
-    print(f"\n生成可视化分析...")
+    print("\n生成可视化分析...")
     predictor.visualize_results(X_test, y_test, X_train, y_train)
     
     # 保存模型
     predictor.save_model()
     
     # 预测测试数据
-    print(f"\n对测试集进行预测...")
+    print("\n对测试集进行预测...")
     test_predictions = predictor.predict_test_data(test_df)
     
     # 保存预测结果
@@ -550,13 +550,13 @@ def main():
     
     result_df.to_csv('output_result/svr_predictions.csv', index=False)
     
-    print(f"\n预测完成!")
-    print(f"  预测结果已保存到: output_result/svr_predictions.csv")
+    print("\n预测完成!")
+    print("  预测结果已保存到: output_result/svr_predictions.csv")
     print(f"  预测评分范围: {test_predictions.min():.2f} - {test_predictions.max():.2f}")
     print(f"  预测评分均值: {test_predictions.mean():.2f}")
     print(f"  预测评分标准差: {test_predictions.std():.2f}")
     
-    print(f"\n模型训练和评估完成!")
+    print("\n模型训练和评估完成!")
     print("="*80)
 
 if __name__ == "__main__":

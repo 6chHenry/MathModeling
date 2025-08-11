@@ -4,11 +4,9 @@ import xgboost as xgb
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.model_selection import cross_val_score, KFold
-from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
+from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.compose import ColumnTransformer
-from sklearn.inspection import permutation_importance
-import joblib
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -204,7 +202,7 @@ class ModelRobustnessAnalyzer:
         }
         
         # 打印结果
-        print(f"交叉验证结果:")
+        print("交叉验证结果:")
         print(f"RMSE: {cv_rmse.mean():.4f} ± {cv_rmse.std():.4f}")
         print(f"R2: {cv_r2.mean():.4f} ± {cv_r2.std():.4f}")
         print(f"MAE: {cv_mae.mean():.4f} ± {cv_mae.std():.4f}")
@@ -504,7 +502,7 @@ class ModelRobustnessAnalyzer:
         # 保存结果
         results_df.to_csv('Q2/hyperparameter_grid_search_results.csv', index=False)
         
-        print(f"超参数网格搜索完成")
+        print("超参数网格搜索完成")
         print(f"最佳参数: {best_params}")
         print(f"最佳R²分数: {best_score:.4f}")
         

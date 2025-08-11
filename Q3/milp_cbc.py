@@ -1,8 +1,6 @@
 import pandas as pd
-import numpy as np
 from pulp import *
 import math
-from datetime import datetime, timedelta
 
 
 class CinemaSchedulingOptimizer:
@@ -132,7 +130,7 @@ class CinemaSchedulingOptimizer:
         hour = int(time_slot.split(':')[0])
 
         # 转换27小时制到24小时制（次日凌晨）
-        display_hour = hour if hour < 24 else hour - 24
+        hour if hour < 24 else hour - 24
 
         for genre in genres:
             if genre in self.genre_time_limits:
@@ -371,7 +369,7 @@ def main():
         result_df = pd.DataFrame(schedule)
         result_df.to_csv('D:\PythonProjects\MCM\output_result\df_result_2.csv', index=False)
 
-        print(f"排片计划已保存到 df_result_2_cbc.csv")
+        print("排片计划已保存到 df_result_2_cbc.csv")
         print(f"总共安排了 {len(schedule)} 场放映")
 
         # 统计各种约束的满足情况
@@ -413,7 +411,7 @@ def main():
         for item in schedule:
             movie_count[item['id']] = movie_count.get(item['id'], 0) + 1
 
-        print(f"\n每部电影播放次数:")
+        print("\n每部电影播放次数:")
         for movie_id, count in movie_count.items():
             movie = optimizer.movies_df[optimizer.movies_df['id'] == movie_id].iloc[0]
             print(f"  电影{movie_id}: {count} 次")

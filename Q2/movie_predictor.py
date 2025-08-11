@@ -320,7 +320,7 @@ def main():
 
     output_df.to_csv('output_result/predicted_ratings.csv', index=False)
 
-    print(f"\n预测完成！结果已保存到 output_result/predicted_ratings.csv")
+    print("\n预测完成！结果已保存到 output_result/predicted_ratings.csv")
     print(f"预测评分范围: {predictions.min():.2f} - {predictions.max():.2f}")
     print(f"预测评分均值: {predictions.mean():.2f}")
     print(f"预测评分标准差: {predictions.std():.2f}")

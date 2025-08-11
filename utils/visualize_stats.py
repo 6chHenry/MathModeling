@@ -1,7 +1,6 @@
 import json
 import matplotlib.pyplot as plt
 import pandas as pd
-from collections import defaultdict
 
 
 # 加载统计文件

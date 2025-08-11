@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
 from datetime import datetime, timedelta
 from collections import defaultdict
 import warnings
@@ -372,7 +371,7 @@ class ParameterPerturbationAnalyzer:
         noisy_schedule = self.schedule_df.copy()
         
         # 对放映时间添加噪声（±15分钟）
-        time_noise = np.random.uniform(-15, 15, len(noisy_schedule))
+        np.random.uniform(-15, 15, len(noisy_schedule))
         noisy_schedule['showtime_noise'] = noisy_schedule['showtime'].copy()
         
         # 对版本添加随机变化

@@ -274,7 +274,7 @@ class SimpleScheduleAnalyzer:
         variance = sum((x - mean_count) ** 2 for x in counts) / len(counts)
         std_count = math.sqrt(variance)
         
-        print(f"\n统计信息:")
+        print("\n统计信息:")
         print(f"  平均播放次数: {mean_count:.2f}")
         print(f"  标准差: {std_count:.2f}")
         print(f"  变异系数: {std_count/mean_count:.2f}")

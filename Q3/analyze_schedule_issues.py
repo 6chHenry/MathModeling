@@ -1,10 +1,6 @@
 import pandas as pd
-import numpy as np
 import math
-from datetime import datetime, timedelta
-import matplotlib.pyplot as plt
-import seaborn as sns
-from collections import defaultdict, Counter
+from collections import defaultdict
 
 class ScheduleAnalyzer:
     def __init__(self, cinema_file, movies_file, schedule_file):
@@ -268,7 +264,7 @@ class ScheduleAnalyzer:
         mean_count = movie_counts.mean()
         std_count = movie_counts.std()
         
-        print(f"\n统计信息:")
+        print("\n统计信息:")
         print(f"  平均播放次数: {mean_count:.2f}")
         print(f"  标准差: {std_count:.2f}")
         print(f"  变异系数: {std_count/mean_count:.2f}")

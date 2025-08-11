@@ -225,9 +225,9 @@ class CinemaSchedulingOptimizer:
         genres = [g.strip() for g in movie['genres'].split(',')]
         hour = int(time_slot.split(':')[0])
         if hour < 24:
-            display_hour = hour
+            pass
         else:
-            display_hour = hour - 24
+            hour - 24
         for genre in genres:
             if genre in self.genre_time_limits:
                 constraints = self.genre_time_limits[genre]

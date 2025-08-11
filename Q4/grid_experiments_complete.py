@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-from datetime import datetime, timedelta, date
+from datetime import datetime, timedelta
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -324,7 +324,7 @@ class GridExperimentAnalyzer:
     def _visualize_grid_results(self, results_df):
         """可视化网格实验结果"""
         # 创建多个子图
-        fig = plt.figure(figsize=(20, 15))
+        plt.figure(figsize=(20, 15))
         
         # 1. 目标函数值热力图（固定rho）
         ax1 = plt.subplot(2, 3, 1)

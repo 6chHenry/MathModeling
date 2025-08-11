@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -674,13 +673,13 @@ def main():
 
     # 交叉验证评估
     print("\n=== 交叉验证评估 ===")
-    cv_score = predictor.train_with_cross_validation(
+    predictor.train_with_cross_validation(
         X_train_split, y_train_split, n_splits=5, epochs=100
     )
 
     # 完整训练
     print("\n=== 完整模型训练 ===")
-    history = predictor.train(
+    predictor.train(
         X_train_split, y_train_split,
         validation_split=0.2,
         epochs=300,
@@ -693,7 +692,7 @@ def main():
 
     # 评估模型
     print("\n=== 模型评估 ===")
-    evaluation = predictor.evaluate_model(X_test_split, y_test_split)
+    predictor.evaluate_model(X_test_split, y_test_split)
 
     # 测试集预测
     print("\n=== 测试集预测 ===")

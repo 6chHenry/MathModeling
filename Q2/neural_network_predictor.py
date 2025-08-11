@@ -1,11 +1,10 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from torch.utils.data import Dataset, DataLoader, TensorDataset
+from torch.utils.data import Dataset, DataLoader
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
@@ -415,7 +414,7 @@ class MovieRatingPredictor:
         plt.subplot(3, 4, 7)
         metric_names = list(metrics.keys())
         metric_values = list(metrics.values())
-        bars = plt.bar(metric_names, metric_values, color=['skyblue', 'lightcoral', 'lightgreen', 'gold'])
+        plt.bar(metric_names, metric_values, color=['skyblue', 'lightcoral', 'lightgreen', 'gold'])
         plt.title('模型性能指标')
         plt.ylabel('数值')
         for i, v in enumerate(metric_values):
@@ -573,11 +572,11 @@ class MovieRatingPredictor:
         
         result_df.to_csv('output_result/neural_network_predictions.csv', index=False)
         
-        print(f"\n预测完成！")
+        print("\n预测完成！")
         print(f"预测评分范围: {test_predictions.min():.2f} - {test_predictions.max():.2f}")
         print(f"预测评分均值: {test_predictions.mean():.2f}")
         print(f"预测评分标准差: {test_predictions.std():.2f}")
-        print(f"结果已保存到: output_result/neural_network_predictions.csv")
+        print("结果已保存到: output_result/neural_network_predictions.csv")
         
         return metrics, test_predictions
 

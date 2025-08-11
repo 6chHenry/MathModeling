@@ -1,8 +1,6 @@
 import pandas as pd
-import numpy as np
 import math
 import time
-from datetime import datetime, timedelta
 import coptpy as cp
 from coptpy import COPT
 
@@ -146,9 +144,9 @@ class CinemaSchedulingOptimizer:
 
         # 转换27小时制到24小时制（次日凌晨）
         if hour < 24:
-            display_hour = hour
+            pass
         else:
-            display_hour = hour - 24
+            hour - 24
 
         for genre in genres:
             if genre in self.genre_time_limits:
@@ -425,7 +423,7 @@ def main():
         result_df = pd.DataFrame(schedule)
         result_df.to_csv(r'F:\MathModeling\Q3\df_result_2_copt_ours_new.csv', index=False)
 
-        print(f"排片计划已保存到 df_result_2_copt_ours_new.csv")
+        print("排片计划已保存到 df_result_2_copt_ours_new.csv")
         print(f"总共安排了 {len(schedule)} 场放映")
 
         # 统计各种约束的满足情况

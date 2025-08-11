@@ -53,10 +53,10 @@ def check_schedule(schedule_csv, movies_csv):
     genre_counts = defaultdict(int)
 
     # Time window constants
-    open_dt = parse_hhmm(RULES["open_time"])
+    parse_hhmm(RULES["open_time"])
     close_dt = parse_hhmm(RULES["close_time"]) + timedelta(days=1)  # next day 03:00
-    golden_start = parse_hhmm(RULES["golden_start"])
-    golden_end = parse_hhmm(RULES["golden_end"])
+    parse_hhmm(RULES["golden_start"])
+    parse_hhmm(RULES["golden_end"])
 
     # Check per-room constraints
     for room, group in df_s.groupby("room"):

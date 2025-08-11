@@ -1,8 +1,5 @@
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
-from datetime import datetime, timedelta, date
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -265,6 +262,5 @@ class GridExperimentAnalyzer:
     
     def _generate_simplified_schedule(self):
         """生成简化版排片方案"""
-        schedule_results = []
         
         # 为每个放映厅生成排

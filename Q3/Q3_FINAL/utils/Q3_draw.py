@@ -1,12 +1,8 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
 from matplotlib.patches import Rectangle
-import matplotlib.dates as mdates
-from datetime import datetime, timedelta
 import plotly.graph_objects as go
-import plotly.express as px
 from plotly.subplots import make_subplots
 import plotly.offline as pyo
 
@@ -53,7 +49,7 @@ class CinemaSchedulingVisualizer:
             # 转换时间
             hour, minute = map(int, showtime.split(':'))
             start_time = hour + minute / 60.0
-            end_time = start_time + runtime / 60.0
+            start_time + runtime / 60.0
 
             # 绘制时间条
             y_pos = y_positions[room]
@@ -124,7 +120,7 @@ class CinemaSchedulingVisualizer:
             # 获取容量和电影信息
             room_capacity = self.optimizer.cinema_df[
                 self.optimizer.cinema_df['room'] == room]['capacity'].iloc[0]
-            movie = self.optimizer.movies_df[self.optimizer.movies_df['id'] == movie_id].iloc[0]
+            self.optimizer.movies_df[self.optimizer.movies_df['id'] == movie_id].iloc[0]
 
             # 计算收益和成本
             is_prime = self.optimizer._is_prime_time(showtime)
@@ -235,8 +231,8 @@ class CinemaSchedulingVisualizer:
         x = np.arange(len(genres))
         width = 0.35
 
-        bars1 = ax1.bar(x - width / 2, counts, width, label='实际播放次数', color='skyblue', alpha=0.7)
-        bars2 = ax1.bar(x + width / 2, max_limits, width, label='最大限制', color='lightcoral', alpha=0.7)
+        ax1.bar(x - width / 2, counts, width, label='实际播放次数', color='skyblue', alpha=0.7)
+        ax1.bar(x + width / 2, max_limits, width, label='最大限制', color='lightcoral', alpha=0.7)
 
         ax1.set_title('题材播放次数约束满足情况', fontsize=14, fontweight='bold')
         ax1.set_xlabel('题材')
@@ -265,8 +261,8 @@ class CinemaSchedulingVisualizer:
         limits = [self.optimizer.version_limits[v]['max'] for v in versions]
 
         x2 = np.arange(len(versions))
-        bars3 = ax2.bar(x2 - width / 2, durations, width, label='实际播放时长', color='lightgreen', alpha=0.7)
-        bars4 = ax2.bar(x2 + width / 2, limits, width, label='最大限制', color='orange', alpha=0.7)
+        ax2.bar(x2 - width / 2, durations, width, label='实际播放时长', color='lightgreen', alpha=0.7)
+        ax2.bar(x2 + width / 2, limits, width, label='最大限制', color='orange', alpha=0.7)
 
         ax2.set_title('版本播放时长约束满足情况', fontsize=14, fontweight='bold')
         ax2.set_xlabel('版本')
@@ -285,7 +281,7 @@ class CinemaSchedulingVisualizer:
         movie_counts = list(movie_count.values())
         colors = [self.movie_colors[m] for m in movie_ids]
 
-        bars5 = ax3.bar(movie_ids, movie_counts, color=colors, alpha=0.7)
+        ax3.bar(movie_ids, movie_counts, color=colors, alpha=0.7)
         ax3.set_title('各电影播放次数分布', fontsize=14, fontweight='bold')
         ax3.set_xlabel('电影ID')
         ax3.set_ylabel('播放次数')
@@ -307,7 +303,7 @@ class CinemaSchedulingVisualizer:
         prime_hours = list(range(18, 21))
         colors = ['gold' if h in prime_hours else 'lightblue' for h in hours]
 
-        bars6 = ax4.bar(range(len(hours)), counts, color=colors, alpha=0.7)
+        ax4.bar(range(len(hours)), counts, color=colors, alpha=0.7)
         ax4.set_title('各时间段排片数量分布', fontsize=14, fontweight='bold')
         ax4.set_xlabel('时间')
         ax4.set_ylabel('排片数量')
@@ -422,7 +418,7 @@ class CinemaSchedulingVisualizer:
         time_indices = range(0, len(self.optimizer.time_slots), step)
         time_labels = [self.optimizer.time_slots[i] for i in time_indices]
 
-        im = ax4.imshow(time_room_matrix[::step, :], aspect='auto', cmap='tab20')
+        ax4.imshow(time_room_matrix[::step, :], aspect='auto', cmap='tab20')
         ax4.set_title('时间-放映厅占用热力图', fontsize=14, fontweight='bold')
         ax4.set_xlabel('放映厅')
         ax4.set_ylabel('时间')
@@ -652,7 +648,7 @@ class CinemaSchedulingVisualizer:
             movie = self.optimizer.movies_df[self.optimizer.movies_df['id'] == movie_id].iloc[0]
             report += f"• 电影{movie_id}: {stats['count']}场, 总观众{stats['attendance']}人\n"
 
-        report += f"""
+        report += """
 放映厅统计:
 """
         # 各房间统计
@@ -666,7 +662,7 @@ class CinemaSchedulingVisualizer:
         for room, count in room_stats.items():
             report += f"• {room}: {count}场\n"
 
-        report += f"""
+        report += """
 版本分布:
 """
         # 版本统计
@@ -679,7 +675,7 @@ class CinemaSchedulingVisualizer:
             percentage = count / total_shows * 100
             report += f"• {version}: {count}场 ({percentage:.1f}%)\n"
 
-        report += f"""
+        report += """
 时间分布:
 """
         # 时间分布统计
@@ -690,7 +686,7 @@ class CinemaSchedulingVisualizer:
         report += f"• 非黄金时段排片: {total_shows - prime_time_shows}场 ({100 - prime_percentage:.1f}%)\n"
 
         # 约束满足情况
-        report += f"""
+        report += """
 约束满足情况:
 """
 
@@ -723,7 +719,7 @@ class CinemaSchedulingVisualizer:
             status = "✅" if duration <= max_limit else "❌"
             report += f"• {version}版本总时长: {duration}分钟 (上限: {max_limit}分钟) {status}\n"
 
-        report += f"""
+        report += """
 优化建议:
 """
 
@@ -849,7 +845,7 @@ def main_with_visualization():
         result_df = pd.DataFrame(schedule)
         result_df.to_csv('D:\PythonProjects\MCM\output_result\df_result_2.csv', index=False)
 
-        print(f"\n排片计划已保存到 df_result_2.csv")
+        print("\n排片计划已保存到 df_result_2.csv")
         print(f"总共安排了 {len(schedule)} 场放映")
 
     else:

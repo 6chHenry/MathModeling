@@ -4,10 +4,9 @@ import xgboost as xgb
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.model_selection import cross_val_score, KFold
-from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
+from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.compose import ColumnTransformer
-import joblib
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -193,7 +192,7 @@ class ModelRobustnessAnalyzer:
         }
         
         # 打印结果
-        print(f"交叉验证结果:")
+        print("交叉验证结果:")
         print(f"RMSE: {cv_rmse.mean():.4f} ± {cv_rmse.std():.4f}")
         print(f"R2: {cv_r2.mean():.4f} ± {cv_r2.std():.4f}")
         print(f"MAE: {cv_mae.mean():.4f} ± {cv_mae.std():.4f}")
