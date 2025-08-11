@@ -9,6 +9,7 @@ def overall_distribution(df):
     plt.title('Distribution of Movie Ratings')
     plt.xlabel('Rating')
     plt.ylabel('Count')
+    plt.savefig('overall_distribution.png')
     plt.show()
 
 def language_vs_rating(df):
@@ -26,6 +27,7 @@ def language_vs_rating(df):
     plt.title('Average Rating by Language (n≥5)')
     plt.xticks(rotation=45)
     plt.ylabel('Mean Rating')
+    plt.savefig('language_vs_rating.png')
     plt.show()
 
 def main_genre_vs_rating(df):
@@ -43,6 +45,7 @@ def main_genre_vs_rating(df):
     plt.title('Average Rating by Main Genre (n≥10)')
     plt.xticks(rotation=45)
     plt.ylabel('Mean Rating')
+    plt.savefig('main_genre_vs_rating.png')
     plt.show()
 
 def runtime_vs_rating(df):
@@ -52,12 +55,16 @@ def runtime_vs_rating(df):
     plt.xlabel('Runtime (min)')
     plt.ylabel('Rating')
     plt.show()
-
+    plt.savefig('runtime_vs_rating.png')
     # 计算相关系数
     print('Pearson r =', df['runtime'].corr(df['rating']))
-if __name__ == '__main__':
+
+def main():
     df = pd.read_csv('df_movies_cleaned.csv')
     overall_distribution(df)
     language_vs_rating(df)
     main_genre_vs_rating(df)
     runtime_vs_rating(df)
+
+if __name__ == '__main__':
+    main()

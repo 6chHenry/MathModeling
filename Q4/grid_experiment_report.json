@@ -1,0 +1,74 @@
+{
+  "experiment_summary": {
+    "grid_experiments": 27,
+    "backtest_days": 7,
+    "emergency_scenarios": 5
+  },
+  "key_findings": {
+    "best_parameters": {
+      "lambda": 1.5,
+      "alpha": 0.7,
+      "rho": 0.4,
+      "objective_value": 171840.275
+    },
+    "most_stable_day": {
+      "date": "2024-08-12",
+      "stability_score": 1.0,
+      "total_revenue": 277567.85,
+      "occupancy_rate": 0.6091292134831461
+    },
+    "most_resilient_scenario": {
+      "scenario_name": "恶劣天气",
+      "resilience_score": 96.92292734113838,
+      "profit_change_pct": -3.077072658861629
+    },
+    "least_resilient_scenario": {
+      "scenario_name": "高需求周末",
+      "resilience_score": -387.84220515972356,
+      "profit_change_pct": 487.84220515972356
+    }
+  },
+  "recommendations": {
+    "parameter_settings": {
+      "lambda": 1.5,
+      "alpha": 0.7,
+      "rho": 0.4,
+      "explanation": "基于网格实验结果，推荐使用λ=1.5, α=0.7, ρ=0.4的参数组合，可获得最高的目标函数值(171840)"
+    },
+    "scheduling_strategy": {
+      "weekend_focus": "False",
+      "weekend_occupancy_advantage": "False",
+      "most_stable_day": "2024-08-12",
+      "recommendations": [
+        "2024-08-12的排片策略最为稳定，可作为参考模板"
+      ]
+    },
+    "emergency_response": {
+      "most_resilient_scenario": "恶劣天气",
+      "least_resilient_scenario": "高需求周末",
+      "response_strategies": {
+        "high_demand_weekend": {
+          "response": "增加黄金时段场次，适当提高票价，安排高评分电影",
+          "expected_impact": "收益提升15-20%"
+        },
+        "equipment_failure": {
+          "response": "将受影响厅场的电影重新安排到其他厅场，优先保证高收益场次",
+          "expected_impact": "收益减少5-10%"
+        },
+        "new_movie_release": {
+          "response": "调整排片计划，为新片安排更多黄金时段场次",
+          "expected_impact": "收益提升10-15%"
+        },
+        "bad_weather": {
+          "response": "降低票价，增加非黄金时段场次，安排家庭友好型电影",
+          "expected_impact": "收益减少15-20%"
+        },
+        "competitor_activity": {
+          "response": "推出优惠活动，增加特色场次，提高服务质量",
+          "expected_impact": "收益减少10-15%"
+        }
+      },
+      "general_recommendation": "建立紧急响应预案，包括快速调整排片、灵活定价和营销策略"
+    }
+  }
+}

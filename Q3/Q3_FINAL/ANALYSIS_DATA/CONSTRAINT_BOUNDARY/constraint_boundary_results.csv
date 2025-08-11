@@ -1,0 +1,13 @@
+constraint,boundary_pct,original_value,new_value,violations_count,3D_minutes_change,3D_minutes_pct_change,IMAX_minutes_change,IMAX_minutes_pct_change,Family_count_change,Family_count_pct_change,Comedy_count_change,Comedy_count_pct_change,Adventure_count_change,Adventure_count_pct_change,Science Fiction_count_change,Science Fiction_count_pct_change,Animation_count_change,Animation_count_pct_change,Fantasy_count_change,Fantasy_count_pct_change,Action_count_change,Action_count_pct_change,Drama_count_change,Drama_count_pct_change,Crime_count_change,Crime_count_pct_change,Mystery_count_change,Mystery_count_pct_change,Suspense_count_change,Suspense_count_pct_change,total_shows_change,total_shows_pct_change,golden_shows_change,golden_shows_pct_change,avg_interval_change,avg_interval_pct_change
+version_total_caps_3D,0.8,1200,960,0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0.0,0.0
+version_total_caps_3D,1.2,1200,1440,0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0.0,0.0
+version_total_caps_IMAX,0.8,1500,1200,0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0.0,0.0
+version_total_caps_IMAX,1.2,1500,1800,0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0.0,0.0
+genre_caps_Animation,0.8,1-5,0-4,1,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0.0,0.0
+genre_caps_Animation,1.2,1-5,1-6,0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0.0,0.0
+genre_caps_Horror,0.8,0-3,0-2,0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0.0,0.0
+genre_caps_Horror,1.2,0-3,0-3,0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0.0,0.0
+genre_caps_Action,0.8,2-6,1-4,1,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0.0,0.0
+genre_caps_Action,1.2,2-6,2-7,0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0.0,0.0
+genre_caps_Drama,0.8,1-6,0-4,1,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0.0,0.0
+genre_caps_Drama,1.2,1-6,1-7,0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0,0.0,0.0,0.0

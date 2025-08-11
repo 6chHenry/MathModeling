@@ -1,0 +1,13 @@
+{
+  "test_summary": {
+    "parameter_perturbation_tests": 28,
+    "constraint_boundary_tests": 12,
+    "noise_resampling_tests": 30
+  },
+  "key_findings": {
+    "most_sensitive_parameter": "min_gap",
+    "most_violated_constraint": "genre_caps_Action",
+    "average_total_gap": 337.1,
+    "solution_stability": "低稳定性"
+  }
+}

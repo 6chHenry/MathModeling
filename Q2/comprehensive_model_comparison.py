@@ -103,7 +103,7 @@ class ModelComparison:
         print("正在加载和预处理数据...")
         
         # 加载测试数据
-        test_df = pd.read_csv('input_data/df_movies_test.csv')
+        test_df = pd.read_csv('../input_data/df_movies_test.csv')
         print(f"测试数据形状: {test_df.shape}")
         
         # 尝试加载训练数据
